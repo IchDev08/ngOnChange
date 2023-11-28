@@ -14,6 +14,8 @@ export class ChildComponent implements OnChanges {
   @Input() foods: string[] = []
   @Input() title: string = ''
 
+  fullTitle = ''
+
 
   ngOnChanges(changes: SimpleChanges) {
     if (!changes['name']?.firstChange && changes['name']?.currentValue) {
@@ -24,9 +26,9 @@ export class ChildComponent implements OnChanges {
       console.log(changes['foods'])
     }
 
-    if (changes['title']?.currentValue) {
-      const title = changes['name'].currentValue + '-' + changes['title'].currentValue
-      console.log(title)
+    if (changes['title']?.currentValue || changes['name']?.currentValue) {
+      this.fullTitle = changes['name'].currentValue + '-' + changes['title'].currentValue
+      console.log(this.fullTitle)
     }
 
   }
