@@ -14,7 +14,9 @@ export class ChildComponent implements OnChanges {
 
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes['name'])
+    if (! changes['name'].firstChange) {
+      console.log(changes['name'])
+    }
   }
 
 }

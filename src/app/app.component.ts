@@ -12,4 +12,8 @@ import {ChildComponent} from "./child/child.component";
 })
 export class AppComponent {
   name = 'ngoich'
+
+  onclick() {
+    this.name = 'onChanges'
+  }
 }
