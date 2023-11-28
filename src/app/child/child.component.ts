@@ -12,17 +12,23 @@ export class ChildComponent implements OnChanges {
 
   @Input() name: string = ''
   @Input() foods: string[] = []
+  @Input() title: string = ''
 
 
   ngOnChanges(changes: SimpleChanges) {
-    if (!changes['name'].firstChange) {
+    if (!changes['name']?.firstChange && changes['name']?.currentValue) {
       console.log(changes['name'])
     }
 
-    console.log(changes['foods'])
-    if (changes['foods'] && !changes['foods'].currentValue) {
+    if (changes['foods']?.currentValue) {
       console.log(changes['foods'])
     }
+
+    if (changes['title']?.currentValue) {
+      const title = changes['name'].currentValue + '-' + changes['title'].currentValue
+      console.log(title)
+    }
+
   }
 
 }

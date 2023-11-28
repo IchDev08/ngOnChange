@@ -11,11 +11,13 @@ import {ChildComponent} from "./child/child.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  name = 'ngoich'
+  name = ''
   foods: string[] = []
+  title = ''
 
   onclick() {
-    this.name = 'onChanges'
+    this.name = 'NgoIch'
+    this.title = 'Software engineer'
   }
 
   addFood(food: string) {
