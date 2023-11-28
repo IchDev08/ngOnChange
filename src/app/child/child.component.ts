@@ -11,11 +11,17 @@ import { CommonModule } from '@angular/common';
 export class ChildComponent implements OnChanges {
 
   @Input() name: string = ''
+  @Input() foods: string[] = []
 
 
   ngOnChanges(changes: SimpleChanges) {
-    if (! changes['name'].firstChange) {
+    if (!changes['name'].firstChange) {
       console.log(changes['name'])
+    }
+
+    console.log(changes['foods'])
+    if (changes['foods'] && !changes['foods'].currentValue) {
+      console.log(changes['foods'])
     }
   }
 

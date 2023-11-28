@@ -12,8 +12,18 @@ import {ChildComponent} from "./child/child.component";
 })
 export class AppComponent {
   name = 'ngoich'
+  foods: string[] = []
 
   onclick() {
     this.name = 'onChanges'
   }
+
+  addFood(food: string) {
+    const isExits = this.foods?.find((value) => value == food)
+    if (!isExits && food) {
+      this.foods = [...this.foods, food]
+    }
+    console.log(this.foods)
+  }
+
 }
