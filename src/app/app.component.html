@@ -1,4 +1,11 @@
 <span>Lifecycle ngOnChange</span>
 
 <button (click)="onclick()" > click </button>
-<app-child [name]="name"></app-child>
+<div>
+  <input type="text" #food>
+  <button (click)="addFood(food.value)">Add</button>
+</div>
+<app-child
+  [name]="name"
+  [foods]="foods">
+</app-child>
